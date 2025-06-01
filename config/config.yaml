@@ -1,0 +1,8 @@
+# JPG & RAW file paths and extensions
+jpg_dir_abs_path: "abs path to jpg data"
+raw_dir_abs_path: "abs path to raw data"
+jpg_exts: [".jpg", ".jpeg"]
+raw_exts: [".nef", ".cr2", ".dng"]
+camera_prefixes: ["dsc", "img"]
+
+
