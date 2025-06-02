@@ -5,4 +5,8 @@ jpg_exts: [".jpg", ".jpeg"]
 raw_exts: [".nef", ".cr2", ".dng"]
 camera_prefixes: ["dsc", "img"]
 
+# Logging configuration
+log_file_abs_path: "abs path to log file"
+
+
 
