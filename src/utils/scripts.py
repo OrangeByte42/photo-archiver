@@ -22,6 +22,7 @@ def assert_abs_paths_exist(abs_paths: List[str]) -> None:
     """
     for abs_path in abs_paths:
         if not os.path.exists(abs_path):
+            logging.error(f"Path does not exist: {abs_path}")
             raise AssertionError(f"Path does not exist: {abs_path}")
 
 def gather_camera_jpg_names(jpg_dir_abs_path: str, camera_file_prefixs: List[str], jpg_exts: List[str], if_logging: bool=True) -> Tuple[Set[str], Dict[str, int]]:
@@ -39,7 +40,6 @@ def gather_camera_jpg_names(jpg_dir_abs_path: str, camera_file_prefixs: List[str
             - 'unique_camera_jpg_cnt': Number of unique camera JPG/JPEG files found.
     """
     # Preprocess the input parameters
-    assert_abs_paths_exist([jpg_dir_abs_path])
     camera_file_prefixs: Tuple[str] = tuple(prefix.lower() for prefix in camera_file_prefixs)
     jpg_exts: Tuple[str] = tuple(ext.lower() for ext in jpg_exts)
 
@@ -89,7 +89,6 @@ def filter_raw_files_by_jpg_names(raw_dir_abs_path: str, raw_exts: List[str], jp
         - 'failed_delete_raw_cnt': Number of RAW files that failed to delete.
     """
     # Preprocess the input parameters
-    assert_abs_paths_exist([raw_dir_abs_path])
     raw_exts: Tuple[str] = tuple(ext.lower() for ext in raw_exts)
 
     # Initialize variables

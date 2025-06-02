@@ -1,18 +1,12 @@
 import random
-import time
 from pathlib import Path
 from typing import List
-from typing import override
 
 from tests.base.test_base import TestScripts
 from src.filter_raw_by_jpg import filter_raw_by_jpg_main
 
 
 class TestFilterRawByJpgMain(TestScripts):
-    @override
-    def tearDown(self):
-        time.sleep(1)
-        super().tearDown()
 
     def test_filter_raw_by_jpg_main(self):
         # Initialize test parameters
@@ -26,14 +20,14 @@ class TestFilterRawByJpgMain(TestScripts):
         TEST_RAW_DIR: Path = self.data_root / "raw_files"
         TEST_LOG_FILE: Path = self.data_root / "filter_raw_by_jpg.log"
         # Create .yaml config file
-        config_file_abs_path = self.data_root / "config.yaml"
+        config_file_abs_path: Path = self.data_root / "config.yaml"
         config_content = {
             'jpg_dir_abs_path': str(TEST_JPG_DIR.resolve()),
             'raw_dir_abs_path': str(TEST_RAW_DIR.resolve()),
             'jpg_exts': TEST_JPG_EXTS,
             'raw_exts': TEST_RAW_EXTS,
             'camera_prefixes': TEST_CAMERA_FILE_PREFIXS,
-            'log_file_abs_path': str(TEST_LOG_FILE.resolve())
+            'log_file_abs_path': str(TEST_LOG_FILE.resolve()),
         }
         with open(config_file_abs_path, 'w') as config_file:
             for key, value in config_content.items():

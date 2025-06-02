@@ -5,6 +5,7 @@ from pprint import pprint
 
 from src.utils.scripts import TOTAL_JPG_CNT, TOTAL_CAMERA_JPG_CNT, UNIQUE_CAMERA_JPG_CNT
 from src.utils.scripts import KEPT_RAW_CNT, DELETED_RAW_CNT, FAILED_DELETE_RAW_CNT
+from src.utils.scripts import assert_abs_paths_exist
 from src.utils.scripts import gather_camera_jpg_names
 from src.utils.scripts import filter_raw_files_by_jpg_names
 
@@ -12,7 +13,9 @@ from src.config.loader import load_config
 from src.config.logging_config import setup_logging, clear_logging_handlers
 
 
-def filter_raw_by_jpg_main(config_file_path: str = "config/config.yaml"):
+_FILTER_RAW_BY_JPG_CONFIG_FILE = "config/filter_raw_by_jpg_config.yaml"
+
+def filter_raw_by_jpg_main(config_file_path: str = _FILTER_RAW_BY_JPG_CONFIG_FILE) -> None:
     """
     Main function to filter raw files based on JPG names.
     """
@@ -28,6 +31,11 @@ def filter_raw_by_jpg_main(config_file_path: str = "config/config.yaml"):
     # Configure logging
     log_file_abs_path: str = config['log_file_abs_path']
     setup_logging(log_to_file=True, log_file_abs_path=log_file_abs_path)
+
+    # Check if the provided paths exist
+    assert_abs_paths_exist(
+        abs_paths=[jpg_dir_abs_path, raw_dir_abs_path]
+    )
 
     # Main logic
     # 1. Gather JPG names from the specified directory
@@ -77,10 +85,7 @@ def filter_raw_by_jpg_main(config_file_path: str = "config/config.yaml"):
 
 if __name__ == "__main__":
     # Run the main function with the default config file path
-    filter_raw_by_jpg_main(config_file_path="config/config.yaml")
-
-
-
+    filter_raw_by_jpg_main(config_file_path=_FILTER_RAW_BY_JPG_CONFIG_FILE)
 
 
 

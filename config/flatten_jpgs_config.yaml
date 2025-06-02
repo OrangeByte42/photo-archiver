@@ -1,0 +1,13 @@
+# Input JPG directory & Output JPG directory Absolute Paths
+input_jpg_dir_abs_path: "abs path to input jpg data"
+output_jpg_dir_abs_path: "abs path to output jpg data"
+jpg_exts: [".jpg", ".jpeg"]
+
+# Number of digits for numbering (default: 2)
+number_of_digits: 2
+
+# Logging configuration
+log_file_abs_path: "abs path to log file"
+
+
+
