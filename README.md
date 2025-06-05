@@ -3,7 +3,7 @@
 <p align="center">
     <a href="#-getting-started">🚀 Getting Started</a> -
     <a href="#-usage">🧑‍💻 Usage</a> -
-    <a href="./CHANGELOGS.md">📙Changelogs</a> -
+    <a href="./CHANGELOG.md">📙Changelog</a> -
     <a href="#-maintainers">👥 Maintainers</a> -
     <a href="#-contributing">🤝 Contributing</a> -
     <a href="#-license">📄 License</a>
@@ -13,6 +13,7 @@
     <!-- Project maintenance status -->
     <img src="https://img.shields.io/badge/Build-Passed-gre">
     <img src="https://img.shields.io/badge/Unit Test-Passed-gre">
+    <img src="https://img.shields.io/badge/Maintained-Yes-gre">
     <img src="https://img.shields.io/badge/Latest Release-no-red">
     </br>
     <!-- Project development environment -->
